@@ -38,11 +38,7 @@ public class UserController {
     @DeleteMapping("/{id}")
     public Result deleteOne(@PathVariable Integer id){
         boolean flag;
-        if (id == 1 || id == 2 || id == 3){
-            flag = true;
-        }else{
-            flag = false;
-        }
+        flag = id == 1 || id == 2 || id == 3;
 
         return new Result(flag ? Code.DELETE_OK : Code.DELETE_ERR, flag);
     }
@@ -50,11 +46,7 @@ public class UserController {
     @PutMapping
     public Result updateOne(@RequestBody User user){
         boolean flag;
-        if (user.getId() == 1 || user.getId() == 2 || user.getId() == 3){
-            flag = true;
-        }else{
-            flag = false;
-        }
+        flag = user.getId() == 1 || user.getId() == 2 || user.getId() == 3;
 
         return new Result(flag ? Code.UPDATE_OK : Code.UPDATE_ERR, flag);
     }
@@ -62,11 +54,7 @@ public class UserController {
     @PostMapping
     public Result addOne(User user){
         boolean flag;
-        if (user.getId() != 1 && user.getId() != 2 && user.getId() != 3){
-            flag = true;
-        }else{
-            flag = false;
-        }
+        flag = user.getId() != 1 && user.getId() != 2 && user.getId() != 3;
         return new Result(flag ? Code.SAVE_OK : Code.SAVE_ERR, flag);
     }
 }
